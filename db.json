@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "firstName": "masha",
+      "username": "mayrptv",
+      "chatId": 643363524
+    },
+    {
+      "username": "MasterSaya",
+      "firstName": "T",
+      "isBot": false,
+      "id": 321193978,
+      "languageCode": "ru",
+      "chatId": 321193978
+    }
+  ]
+}
