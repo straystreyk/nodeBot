@@ -22,7 +22,7 @@ bot.on("message", async (msg) => {
     case "/stars":
       return await stars(chatId);
     default:
-      return await bot.sendMessage(chatId, "I down know what u want :)");
+      return await bot.sendMessage(chatId, "I dont know what u want :)");
   }
 });
 
@@ -36,4 +36,4 @@ setInterval(() => {
       await stars(person.chatId);
     });
   }
-}, 45000);
+}, 60000);

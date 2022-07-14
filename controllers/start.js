@@ -24,5 +24,5 @@ export const start = async (msg, chatId) => {
     console.log(e.message);
   }
 
-  await bot.sendMessage(chatId, "HI");
+  await bot.sendMessage(chatId, "Glad to see you :)");
 };
