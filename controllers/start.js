@@ -20,9 +20,9 @@ export const start = async (msg, chatId) => {
         JSON.stringify({ users: [...db.users, userInfo] }, null, 2)
       );
     }
+    await bot.sendMessage(chatId, "Glad to see you :)");
   } catch (e) {
     console.log(e.message);
+    await bot.sendMessage(chatId, "Something went wrong :(");
   }
-
-  await bot.sendMessage(chatId, "Glad to see you :)");
 };
