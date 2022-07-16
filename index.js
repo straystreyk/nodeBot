@@ -39,6 +39,7 @@ const startBot = async () => {
     const minutes = date.getMinutes();
 
     if (db.reminders && db.reminders.length) {
+      console.log("adad");
       sendRemind();
     }
 
