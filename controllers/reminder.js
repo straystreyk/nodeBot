@@ -42,8 +42,9 @@ export const reminder = async (msgId, chatId) => {
   });
 };
 
-export const sendRemind = (date) => {
+export const sendRemind = () => {
   if (!db.reminders && !db.reminders.length) return;
+  const date = new Date(Date.now());
 
   db.reminders.forEach(async (person) => {
     const remindDate = new Date(person.remindTime * 1000).toLocaleDateString();

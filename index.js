@@ -39,7 +39,7 @@ const startBot = async () => {
     const minutes = date.getMinutes();
 
     if (db.reminders && db.reminders.length) {
-      sendRemind(date);
+      sendRemind();
     }
 
     if (hours === 19 && minutes === 25) {
