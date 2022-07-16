@@ -46,13 +46,21 @@ export const sendRemind = () => {
   if (!db.reminders && !db.reminders.length) return;
   const date = new Date(Date.now());
 
-  console.log(date.toLocaleDateString());
-  console.log(date.toLocaleTimeString());
-
   db.reminders.forEach(async (person) => {
     const remindDate = new Date(person.remindTime * 1000).toLocaleDateString();
     const dbHours = new Date(person.remindTime * 1000).getHours();
     const dbMinutes = new Date(person.remindTime * 1000).getMinutes();
+
+    console.log(
+      remindDate === date.toLocaleDateString(),
+      "remindDate === date.toLocaleDateString()"
+    );
+    console.log(dbHours === date.getHours(), " dbHours === date.getHours()");
+    console.log(
+      dbMinutes === date.getMinutes(),
+      "dbMinutes === date.getMinutes()"
+    );
+
     if (
       remindDate === date.toLocaleDateString() &&
       dbHours === date.getHours() &&
