@@ -12,6 +12,7 @@ import { bot } from "./bot";
 import { reminder, stars, start } from "./controllers";
 import { commands } from "./constants/commands";
 import db from "./db.json";
+import { sendRemind } from "./controllers/reminder";
 
 const startBot = async () => {
   await bot.setMyCommands(commands);
@@ -38,31 +39,7 @@ const startBot = async () => {
     const minutes = date.getMinutes();
 
     if (db.reminders && db.reminders.length) {
-      db.reminders.forEach(async (person) => {
-        const remindDate = new Date(
-          person.remindTime * 1000
-        ).toLocaleDateString();
-        const hours = new Date(person.remindTime * 1000).getHours();
-        const minutes = new Date(person.remindTime * 1000).getMinutes();
-        if (
-          remindDate === new Date().toLocaleDateString() &&
-          hours === new Date().getHours() &&
-          minutes === new Date().getMinutes()
-        ) {
-          await fs.writeFile(
-            path.resolve("db.json"),
-            JSON.stringify(
-              { ...db, reminders: db.reminders.filter((el) => el !== person) },
-              null,
-              2
-            ),
-            () => {
-              console.log("Deleted");
-            }
-          );
-          await bot.sendMessage(person.chatId, person.text);
-        }
-      });
+      sendRemind(date);
     }
 
     if (hours === 19 && minutes === 25) {
