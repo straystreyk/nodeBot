@@ -46,6 +46,9 @@ export const sendRemind = () => {
   if (!db.reminders && !db.reminders.length) return;
   const date = new Date(Date.now());
 
+  console.log(date.toLocaleDateString());
+  console.log(date.toLocaleTimeString());
+
   db.reminders.forEach(async (person) => {
     const remindDate = new Date(person.remindTime * 1000).toLocaleDateString();
     const dbHours = new Date(person.remindTime * 1000).getHours();

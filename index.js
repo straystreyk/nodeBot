@@ -47,7 +47,7 @@ const startBot = async () => {
         await stars(person.chatId);
       });
     }
-  }, 60000);
+  }, 100);
 };
 
 startBot();

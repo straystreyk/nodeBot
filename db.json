@@ -15,6 +15,10 @@
     }
   ],
   "reminders": [
-
+    {
+      "chatId": 321193978,
+      "remindTime": 1657959720,
+      "text": " Jo jo jo"
+    }
   ]
 }
